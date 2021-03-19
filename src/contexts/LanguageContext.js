@@ -1,8 +1,10 @@
 import React from "react";
 
+// must be capital letter, otherwise React thinks just regular html
 const Context = React.createContext("english");
 
-class LanguageStore extends React.Component {
+// named export
+export class LanguageStore extends React.Component {
   // your "store"
   state = { language: "english" };
   // change selected language
@@ -18,3 +20,4 @@ class LanguageStore extends React.Component {
     );
   }
 }
+export default Context;
