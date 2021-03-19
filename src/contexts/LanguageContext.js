@@ -1,3 +1,26 @@
-import React from 'react';
+import React from "react";
 
-export default React.createContext('english');
+// must be capital letter, otherwise React thinks just regular html
+const Context = React.createContext("english");
+
+// named export
+export class LanguageStore extends React.Component {
+  // your "store"
+  state = { language: "english" };
+  // change selected language
+  onLanguageChange = language => {
+    this.setState({ language });
+  };
+  // only components wrapped in Provider gets access to context object
+  // implementing not showing anything
+  render() {
+    return (
+      <Context.Provider
+        value={{ ...this.state, onLanguageChange: this.onLanguageChange }}
+      >
+        {this.props.children}
+      </Context.Provider>
+    );
+  }
+}
+export default Context;

@@ -4,8 +4,8 @@ import ColorContext from "../contexts/ColorContext";
 
 class Button extends React.Component {
   // Consumer component needs a function as child
-  renderSubmit(value) {
-    return value === "english" ? "Submit" : "Voorleggen";
+  renderSubmit(language) {
+    return language === "english" ? "Submit" : "Voorleggen";
   }
   // Consumer child can only be a function,
   // so need this function
@@ -14,7 +14,7 @@ class Button extends React.Component {
     return (
       <button className={`ui button ${color}`}>
         <LanguageContext.Consumer>
-          {value => this.renderSubmit(value)}
+          {({ language }) => this.renderSubmit(language)}
         </LanguageContext.Consumer>
       </button>
     );
