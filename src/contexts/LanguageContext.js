@@ -12,9 +12,12 @@ export class LanguageStore extends React.Component {
     this.setState({ language });
   };
   // only components wrapped in Provider gets access to context object
+  // implementing not showing anything
   render() {
     return (
-      <Context.Provider value={{ ...this.state, onLanguageChange }}>
+      <Context.Provider
+        value={{ ...this.state, onLanguageChange: this.onLanguageChange }}
+      >
         {this.props.children}
       </Context.Provider>
     );
